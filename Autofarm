@@ -2,11 +2,9 @@ getgenv().settings={
    ["click"]=false,
    ["rebirth"]=false,
    ["upgrade"]=false,
-   ["superUpgrade"]=false,
    ["boss"]=false,
    ["drops"]=false,
-   ["egg"]=false,
-   ["craft"]=false
+   ["egg"]=false
 }
 local selectedBoss
 function fightBoss(bossCFrame)
