@@ -27,8 +27,7 @@ function dailyReward()
    spawn(function()
       game:GetService("ReplicatedStorage").Remotes.CollectChest:InvokeServer("DailyRewards")
       game:GetService("ReplicatedStorage").Remotes.CollectChest:InvokeServer("GroupRewards")
-      end
-   end
+   end)
 end
 
 
@@ -169,7 +168,7 @@ Mode=   "Dynamic"
 local selectedRebirth
 FarmingSection:AddDropdown({
    Name="Rebirth options",
-   List = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"},
+   List = {"Click Me","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"},
    Callback=function(value)
        selectedRebirth=value
        print(value)
@@ -205,7 +204,7 @@ FarmingSection:AddToggle({
 })
 FarmingSection:AddDropdown({
     Name="Auto Fight Boss",
-    List={"Evil Vegete","Serparu","Freezie","Chima King","The Destroyer"},
+    List={"Click Me","Evil Vegete","Serparu","Freezie","Chima King","The Destroyer"},
     Callback=function(value)
         selectedBoss=value
         print(value)
@@ -231,7 +230,7 @@ FarmingSection:AddButton({
 local selectedEgg
 PetSection:AddDropdown({
    Name="Egg to buy",
-   List={"Dragon Star","Demon Star","5M Star","Pirate Star","Slayer Star","Nine Tailed Star","Spirit Star","Walled Star","Namekian Star","Quirky Star","Crazy Star","Hunter Star","Fighting Star","city","moon","fire"},
+   List={"Click Me","Dragon Star","Demon Star","5M Star","Pirate Star","Slayer Star","Nine Tailed Star","Spirit Star","Walled Star","Namekian Star","Quirky Star","Crazy Star","Hunter Star","Fighting Star","city","moon","fire"},
    Callback=function(value)
        selectedEgg=value
        print(value)
@@ -251,7 +250,7 @@ PetSection:AddToggle({
 local selectedWorld
 Other:AddDropdown({
    Name="World to teleport",
-   List={"Anime Village","Pirate Docks","Purple Forest","Shinobi Village","Spirit Society","Walled City","Narmek","Hero Academy","Stand City","Hunter Kingdom","Jiu Jitsu Sewers","The Sin Zone","Walled Arena"},
+   List={"Click Me","Anime Village","Pirate Docks","Purple Forest","Shinobi Village","Spirit Society","Walled City","Narmek","Hero Academy","Stand City","Hunter Kingdom","Jiu Jitsu Sewers","The Sin Zone","Walled Arena"},
    Callback=function(value)
        selectedWorld=value
        print(value)
