@@ -23,6 +23,16 @@ function fightBoss(bossCFrame)
         end
     end)
 end
+function dailyReward()
+   spawn(function()
+      game:GetService("ReplicatedStorage").Remotes.CollectChest:InvokeServer("DailyRewards")
+      game:GetService("ReplicatedStorage").Remotes.CollectChest:InvokeServer("GroupRewards")
+      end
+   end
+end
+
+
+
 function teleportTO(placeCFrame)
   local player = game.Players.LocalPlayer
   if player.Character then
@@ -203,7 +213,7 @@ FarmingSection:AddDropdown({
     
 })
 FarmingSection:AddToggle({
-    Name="Auto fight",
+    Name="Auto fight boss",
     Callback=function(bool)
         getgenv().settings["boss"]=bool
         if bool and selectedBoss then
@@ -211,6 +221,12 @@ FarmingSection:AddToggle({
         end
     end
     
+})
+FarmingSection:AddButton({
+   Name="Collect daily/group chest",
+   Callback=function()
+      dailyReward()
+      end
 })
 local selectedEgg
 PetSection:AddDropdown({
