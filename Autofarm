@@ -59,7 +59,7 @@ end
 function click()
    spawn(function()
        while wait() do
-           if not getgenv().settings["click"]then break end
+           if not getgenv().settings["click"] then break end
             local args = {
                 [1] = false,
                 [2] = "Clicker!"
