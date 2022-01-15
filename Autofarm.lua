@@ -8,6 +8,7 @@ getgenv().settings={
    ["drops"]=false,
    ["egg"]=false
 }
+
 local selectedBoss
 function fightBoss(bossCFrame)
     spawn(function()
