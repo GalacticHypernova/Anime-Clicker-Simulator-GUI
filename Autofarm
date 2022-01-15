@@ -1,3 +1,4 @@
+--Test
 getgenv().settings={
    ["click"]=false,
    ["rebirth"]=false,
