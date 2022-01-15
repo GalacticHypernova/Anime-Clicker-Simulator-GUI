@@ -130,6 +130,31 @@ function upgradeAll()
    end)
 end
 
+function lagReduce()
+   spawn(function()
+      local args = {
+         [1] = "Notifications"
+         [2] = false
+      }
+      game:GetService("ReplicatedStorage").Remotes.ChangeSettings:FireServer(unpack(args))
+  end)
+  spawn(function()
+      local args = {
+         [1] = "Click Alerts",
+         [2] = false
+      }
+      game:GetService("ReplicatedStorage").Remotes.ChangeSettings:FireServer(unpack(args))
+  end)
+  spawn(function()
+      local args = {
+         [1] = "Lite Graphics",
+         [2] = true
+      }
+      game:GetService("ReplicatedStorage").Remotes.ChangeSettings:FireServer(unpack(args))
+  end)
+end
+
+
 
 local library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
 local Wait = library.subs.Wait -- Only returns if the GUI has not been terminated. For 'while Wait() do' loops
@@ -281,4 +306,10 @@ Other:AddSlider({
     Callback=function(value)
         game.Players.LocalPlayer.Character.Humanoid.JumpPower=value
     end
+})
+Other:AddButton({
+Name="Optimize game (lag reduction)",
+Callback=function()
+lagReduce()
+end
 })
