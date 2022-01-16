@@ -6,7 +6,8 @@ getgenv().settings={
    ["upgrade"]=false,
    ["boss"]=false,
    ["drops"]=false,
-   ["egg"]=false
+   ["egg"]=false,
+   ["ach"]=false
 }
 local rS=game:GetService("RunService")
 
@@ -20,7 +21,7 @@ function fightBoss(bossCFrame)
             
             local args = {
             [1] = true,
-            [2] = "Clicker!",
+            [2] = "HOW ARE YOU DOING THIS!!!",
             [3] = bossCFrame
         }
         game:GetService("ReplicatedStorage").Remotes.ClickRemote:FireServer(unpack(args))
@@ -35,7 +36,36 @@ function dailyReward()
    end)
 end
 
-
+function achieve()
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                [1]="Yen Boost I",
+                [2]="Click Boost I",
+                [3]="Luck Boost I",
+                [4]="Yen Boost II",
+                [5]="Click Boost II",
+                [6]="Click Boost II",
+                [7]="Yen Boost III",
+                [8]="Click Boost III",
+                [9]="Click Boost III",
+                [10]="Yen Boost IV",
+                [11]="Click Boost IV",
+                [12]="Yen Boost IV",
+                [13]="Yen Boost V",
+                [14]="Click Boost V",
+                [15]="Luck Boost V",
+                [16]="Yen Boost VI",
+                [17]="Luck Boost VI",
+                [18]="Slow Auto Click",
+                [19]="+1 Equipped",
+                [20]="Fast Craft"
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(require(game:GetService("ReplicatedStorage").Library.Modules.Achievements))
+            rS.Heartbeat:Wait()
+        end
+    end)
+end
 
 function teleportTO(placeCFrame)
   local player = game.Players.LocalPlayer
@@ -49,30 +79,31 @@ function teleportWorld(World)
   end
 end
 function buyEgg(eggType)
-   spawn(function()
-       while wait() do
-           if not getgenv().settings["egg"] then break end
-           local args = {
-               [1]=eggType,
-               [2]=false,
-               [3]=false
-           }
-           game:GetService("ReplicatedStorage").Remotes.OpenEgg:InvokeServer(unpack(args)) 
+    spawn(function()
+        while wait() do
+            if not getgenv().settings["egg"] then break end
+            local args = {
+                [1] = eggType,
+                [2] = false,
+                [3] = false
+            }           
+            game:GetService("ReplicatedStorage").Remotes.OpenEgg:InvokeServer(unpack(args))
        end
    end)
 end
 function click()
    spawn(function()
        while getgenv().settings["click"] do
-            local args = {
-                [1] = true,
-                [2] = "Clicker!"
-            }
+        local args = {
+        [1] = true,
+        [2] = "HOW ARE YOU DOING THIS!!!"
+        }
         game:GetService("ReplicatedStorage").Remotes.ClickRemote:FireServer(unpack(args))
         rS.Heartbeat:Wait()
-        end
+       end
    end)
 end
+
 
 function autoRebirth(rebirthAmount)
    spawn(function()
@@ -255,6 +286,16 @@ FarmingSection:AddButton({
    Callback=function()
       dailyReward()
       end
+})
+FarmingSection:AddToggle({
+    Name="Claim all achievements",
+    Callback=function()
+        getgenv().settings["ach"]=bool
+        if bool then
+            achieve()
+        end
+        
+    end
 })
 local selectedEgg
 PetSection:AddDropdown({
