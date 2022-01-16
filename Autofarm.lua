@@ -164,7 +164,7 @@ function upgradeAll()
        end
    end)
 end
-
+--Test to hopefully fix loadstring again
 function lagReduce()
    spawn(function()
       local args = {
