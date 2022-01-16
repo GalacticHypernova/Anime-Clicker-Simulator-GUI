@@ -61,7 +61,7 @@ function achieve()
                 [19]="+1 Equipped",
                 [20]="Fast Craft"
             }
-            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(require(game:GetService("ReplicatedStorage").Library.Modules.Achievements))
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
             rS.Heartbeat:Wait()
         end
     end)
