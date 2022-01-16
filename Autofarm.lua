@@ -8,6 +8,7 @@ getgenv().settings={
    ["drops"]=false,
    ["egg"]=false
 }
+local rS=game:GetService("RunService")
 
 local selectedBoss
 function fightBoss(bossCFrame)
@@ -15,14 +16,15 @@ function fightBoss(bossCFrame)
         local playerHead=game.Players.LocalPlayer.Character.HumanoidRootPart
         playerHead.CFrame=game:GetService("Workspace").BossZones[bossCFrame].Touch.CFrame
         wait(2)
-        while wait() do
-            if not getgenv().settings["boss"] then break end
+        while getgenv().settings["boss"] do
+            
             local args = {
-            [1] = false,
+            [1] = true,
             [2] = "Clicker!",
             [3] = bossCFrame
         }
         game:GetService("ReplicatedStorage").Remotes.ClickRemote:FireServer(unpack(args))
+        rS.Heartbeat:Wait()
         end
     end)
 end
@@ -61,22 +63,22 @@ function buyEgg(eggType)
 end
 function click()
    spawn(function()
-       while wait() do
-           if not getgenv().settings["click"] then break end
+       while getgenv().settings["click"] do
             local args = {
-                [1] = false,
+                [1] = true,
                 [2] = "Clicker!"
             }
         game:GetService("ReplicatedStorage").Remotes.ClickRemote:FireServer(unpack(args))
+        rS.Heartbeat:Wait()
         end
    end)
 end
 
 function autoRebirth(rebirthAmount)
    spawn(function()
-       while wait() do
-           if not getgenv().settings["rebirth"] then break end
+       while getgenv().settings["rebirth"] do
            game:GetService("ReplicatedStorage").Remotes.RebirthRemote:FireServer(rebirthAmount)
+           rS.Heartbeat:Wait()
        end
    end)
 end
@@ -86,8 +88,7 @@ function autoCollectDrops()
        while wait() do
            if not getgenv().settings["drops"] then break end
            for i,v in pairs(game:GetDescendants()) do
-               if v.Name=="TouchInterest" and v.Parent.Name=="Touch" then
-                   
+               if v.Name=="TouchInterest" and v.Parent.Name=="Part" then
                    firetouchinterest(plyrHead,v.Parent,0)
                end
            end
@@ -231,7 +232,7 @@ FarmingSection:AddToggle({
     
 })
 FarmingSection:AddDropdown({
-    Name="Auto Fight Boss",
+    Name="Boss to fight",
     List={"Click Me","Evil Vegete","Serparu","Freezie","Chima King","The Destroyer"},
     Callback=function(value)
         selectedBoss=value
