@@ -7,7 +7,8 @@ getgenv().settings={
    ["boss"]=false,
    ["drops"]=false,
    ["egg"]=false,
-   ["ach"]=false
+   ["ach"]=false,
+   ["eggShard"]=false
 }
 local rS=game:GetService("RunService")
 
@@ -35,7 +36,19 @@ function dailyReward()
       game:GetService("ReplicatedStorage").Remotes.CollectChest:InvokeServer("GroupRewards")
    end)
 end
-
+function buyShardEgg(eggType2)
+    spawn(function()
+        while wait() do
+            if not getgenv().settings["eggShard"] then break end
+            local args = {
+                [1] = eggType2,
+                [2] = false,
+                [3] = false
+            }           
+            game:GetService("ReplicatedStorage").Remotes.OpenEgg:InvokeServer(unpack(args))
+        end
+    end)
+end
 function achieve()
     spawn(function()
         while getgenv().settings["ach"] do
@@ -315,8 +328,24 @@ PetSection:AddToggle({
        end
    end
 })
-
-
+local selectedEgg2
+PetSection:AddDropdown({
+   Name="Shard egg to buy",
+   List={"Click Me","Evil Vegete Star","Serparu Star","Freezie Star","Chima King Star"},
+   Callback=function(value)
+       selectedEgg2=value
+       print(value)
+       end
+})
+PetSection:AddToggle({
+   Name="Buy egg",
+   Callback=function(bool)
+       getgenv().settings["eggShard"]=bool
+       if bool and selectedEgg2 then
+       buyShardEgg(tostring(selectedEgg2))
+       end
+   end
+})
 local selectedWorld
 Other:AddDropdown({
    Name="World to teleport",
