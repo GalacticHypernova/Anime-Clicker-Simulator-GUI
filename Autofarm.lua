@@ -1,4 +1,4 @@
---Test
+
 --Another test
 getgenv().settings={
    ["click"]=false,
