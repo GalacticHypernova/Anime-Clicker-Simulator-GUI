@@ -10,7 +10,6 @@ getgenv().settings={
    ["ach"]=false,
    ["eggShard"]=false
 }
-local rS=game:GetService("RunService")
 
 local selectedBoss
 function fightBoss(bossCFrame)
