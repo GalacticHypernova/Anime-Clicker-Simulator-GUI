@@ -1,5 +1,5 @@
---A test
---Yo loadstring, please stop breaking k thx
+--Test
+--Another test
 getgenv().settings={
    ["click"]=false,
    ["rebirth"]=false,
@@ -412,3 +412,4 @@ Callback=function()
 lagReduce()
 end
 })
+--Test?
