@@ -398,7 +398,7 @@ PetSection:AddToggle({
     end
 })
 PetSection:AddButton({
-    Name="Auto delete ",
+    Name="Auto delete (click again after \ntoggle above is false to stop)",
     Callback=function()
         autoDelete(tostring(selectedAutoDelete))
     end
