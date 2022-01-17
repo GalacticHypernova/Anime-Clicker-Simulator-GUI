@@ -80,17 +80,6 @@ function achieve()
     end)
 end
 
-function teleportTO(placeCFrame)
-  local player = game.Players.LocalPlayer
-  if player.Character then
-      player.Character.HumanoidRootPart.CFrame=placeCFrame
-  end
-end
-function teleportWorld(World)
-  if game:GetService("Workspace").Worlds:FindFirstChild(World) then
-      teleportTO(game:GetService("Workspace").Worlds[World].Spawn.CFrame)
-  end
-end
 function buyEgg(eggType)
     spawn(function()
         while wait() do
@@ -117,7 +106,26 @@ function click()
    end)
 end
 
-
+function teleport(teleportWorld)
+    spawn(function()
+        local args = {
+            [1] = "world",
+            [2] = teleportWorld
+        }
+        game:GetService("ReplicatedStorage").Remotes.RequestTeleport:InvokeServer(unpack(args))
+    end)
+end
+function teleportTO(placeCFrame)
+  local player = game.Players.LocalPlayer
+  if player.Character then
+      player.Character.HumanoidRootPart.CFrame=placeCFrame
+  end
+end
+function teleportWorld(World)
+  if game:GetService("Workspace").Worlds:FindFirstChild(World) then
+      teleportTO(game:GetService("Workspace").Worlds[World].Spawn.CFrame)
+  end
+end
 function autoRebirth(rebirthAmount)
    spawn(function()
        while getgenv().settings["rebirth"] do
@@ -347,8 +355,25 @@ PetSection:AddToggle({
    end
 })
 local selectedWorld
+local selectedWorld2
 Other:AddDropdown({
-   Name="World to teleport",
+   Name="World to teleport (no boost)",
+   List={"Click Me","Anime Village","Pirate Docks","Purple Forest","Shinobi Village","Spirit Society","Walled City","Narmek","Hero Academy","Stand City","Hunter Kingdom","Jiu Jitsu Sewers","The Sin Zone","Walled Arena"},
+   Callback=function(value)
+       selectedWorld2=value
+       print(value)
+   end
+})
+Other:AddButton({
+   Name="Teleport",
+   Callback=function()
+       if selectedWorld then
+       teleportWorld(tostring(selectedWorld2))
+       end
+   end
+})
+Other:AddDropdown({
+   Name="World to teleport (boost, owned)",
    List={"Click Me","Anime Village","Pirate Docks","Purple Forest","Shinobi Village","Spirit Society","Walled City","Narmek","Hero Academy","Stand City","Hunter Kingdom","Jiu Jitsu Sewers","The Sin Zone","Walled Arena"},
    Callback=function(value)
        selectedWorld=value
@@ -359,7 +384,7 @@ Other:AddButton({
    Name="Teleport",
    Callback=function()
        if selectedWorld then
-       teleportWorld(selectedWorld)
+       teleport(tostring(selectedWorld))
        end
    end
 })
