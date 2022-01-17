@@ -1,3 +1,5 @@
+--Test
+--Another test
 getgenv().settings={
    ["click"]=false,
    ["rebirth"]=false,
@@ -12,6 +14,24 @@ getgenv().settings={
 local rS=game:GetService("RunService")
 
 local selectedBoss
+function codes()
+    spawn(function()
+        local args={
+            [1]="SuperYen",
+            [2]="TitanicLikeGoal",
+            [3]="FeelingLucky",
+            [4]="ClickingPower",
+            [5]="LikeYenBoost",
+            [6]="ClickBoost",
+            [7]="SpradenCapped",
+            [8]="SuperClicks",
+            [9]="GiftOfGiving",
+            [10]="MonsterYen",
+            [11]="Release"
+        }
+        game:GetService("ReplicatedStorage").Remotes.RedeemCode:InvokeServer(unpack(args))
+    end)
+end
 function fightBoss(bossCFrame)
     spawn(function()
         local playerHead=game.Players.LocalPlayer.Character.HumanoidRootPart
@@ -401,7 +421,6 @@ PetSection:AddButton({
         autoDelete(tostring(selectedAutoDelete))
     end
 })
---ANOTHER TEST
 local selectedWorld
 local selectedWorld2
 Other:AddDropdown({
@@ -435,6 +454,12 @@ Other:AddButton({
        teleport(tostring(selectedWorld))
        end
    end
+})
+Other:AddButton({
+    Name="Redeem all codes",
+    Callback=function()
+        codes()
+        end
 })
 Other:AddSlider({
     Name="Walkspeed",
