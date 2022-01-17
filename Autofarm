@@ -1,4 +1,5 @@
 --A test
+--Yo loadstring, please stop breaking k thx
 getgenv().settings={
    ["click"]=false,
    ["rebirth"]=false,
