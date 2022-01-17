@@ -73,30 +73,207 @@ function achieve()
         while getgenv().settings["ach"] do
             local args={
                 [1]="Yen Boost I",
-                [2]="Click Boost I",
-                [3]="Luck Boost I",
-                [4]="Yen Boost II",
-                [5]="Click Boost II",
-                [6]="Click Boost II",
-                [7]="Yen Boost III",
-                [8]="Click Boost III",
-                [9]="Click Boost III",
-                [10]="Yen Boost IV",
-                [11]="Click Boost IV",
-                [12]="Yen Boost IV",
-                [13]="Yen Boost V",
-                [14]="Click Boost V",
-                [15]="Luck Boost V",
-                [16]="Yen Boost VI",
-                [17]="Luck Boost VI",
-                [18]="Slow Auto Click",
-                [19]="+1 Equipped",
-                [20]="Fast Craft"
             }
             game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
             rS.Heartbeat:Wait()
         end
     end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Click Boost I",
+                
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                [1]="Luck Boost I",
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Yen Boost II",
+                
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Click Boost II",
+                
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Click Boost II",
+                
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Yen Boost III",
+                
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Click Boost III",
+                
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Click Boost III",
+                
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                [1]="Yen Boost IV",
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                [1]="Click Boost IV",
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Yen Boost IV",
+                
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Yen Boost V",
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+
+                [1]="Click Boost V",
+                }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Luck Boost V",
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Yen Boost VI",
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+               
+                [1]="Luck Boost VI",
+                }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="Slow Auto Click",
+
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                
+                [1]="+1 Equipped",
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    spawn(function()
+        while getgenv().settings["ach"] do
+            local args={
+                [1]="Fast Craft"
+            }
+            game:GetService("ReplicatedStorage").Remotes.ClaimQuestEvent:FireServer(unpack(args))
+            rS.Heartbeat:Wait()
+        end
+    end)
+    
 end
 
 function buyEgg(eggType)
@@ -356,12 +533,11 @@ FarmingSection:AddButton({
 })
 FarmingSection:AddToggle({
     Name="Claim all achievements",
-    Callback=function()
+    Callback=function(bool)
         getgenv().settings["ach"]=bool
         if bool then
             achieve()
         end
-        
     end
 })
 local selectedEgg
