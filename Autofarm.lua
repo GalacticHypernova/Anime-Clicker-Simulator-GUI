@@ -57,7 +57,7 @@ function dailyReward()
 end
 function buyShardEgg(eggType2)
     spawn(function()
-        while wait() do
+        while task.wait() do
             if not getgenv().settings["eggShard"] then break end
             local args = {
                 [1] = eggType2,
@@ -278,7 +278,7 @@ end
 
 function buyEgg(eggType)
     spawn(function()
-        while wait() do
+        while task.wait() do
             if not getgenv().settings["egg"] then break end
             local args = {
                 [1] = eggType,
@@ -333,7 +333,7 @@ end
 function autoCollectDrops()
    spawn(function()
        local plyrHead=game.Players.LocalPlayer.Character.HumanoidRootPart
-       while wait() do
+       while task.wait() do
            if not getgenv().settings["drops"] then break end
            for i,v in pairs(game:GetDescendants()) do
                if v.Name=="TouchInterest" and v.Parent.Name=="Part" then
@@ -345,37 +345,37 @@ function autoCollectDrops()
 end
 function upgradeAll()
    spawn(function()
-       while wait() do
+       while task.wait(1) do
            if not getgenv().settings["upgrade"] then break end
             game:GetService("ReplicatedStorage").Remotes.RequestUpgrade:FireServer("Run Speed")
        end
    end)
    spawn(function()
-       while wait() do
+       while task.wait(1) do
            if not getgenv().settings["upgrade"] then break end
             game:GetService("ReplicatedStorage").Remotes.RequestUpgrade:FireServer("More Rebirths")
        end
    end)
    spawn(function()
-       while wait() do
+       while task.wait(1) do
            if not getgenv().settings["upgrade"] then break end
             game:GetService("ReplicatedStorage").Remotes.RequestUpgrade:FireServer("Star Open Speed")
        end
    end)
    spawn(function()
-       while wait() do
+       while task.wait(1) do
            if not getgenv().settings["upgrade"] then break end
             game:GetService("ReplicatedStorage").Remotes.RequestUpgrade:FireServer("More Storage")
        end
    end)
    spawn(function()
-       while wait() do
+       while task.wait(1) do
            if not getgenv().settings["upgrade"] then break end
             game:GetService("ReplicatedStorage").Remotes.RequestUpgrade:FireServer("Crit Chance")
        end
    end)
    spawn(function()
-       while wait() do
+       while task.wait(1) do
            if not getgenv().settings["upgrade"] then break end
             game:GetService("ReplicatedStorage").Remotes.RequestUpgrade:FireServer("More Yen")
        end
@@ -403,6 +403,14 @@ function lagReduce()
          [2] = true
       }
       game:GetService("ReplicatedStorage").Remotes.ChangeSettings:FireServer(unpack(args))
+  end)
+   spawn(function()
+         local args={
+           [1] = "Name Tags",
+            [2]=false
+            }
+          game:GetService("ReplicatedStorage").Remotes.ChangeSettings:FireServer(unpack(args))
+
   end)
 end
 local E
@@ -436,12 +444,12 @@ function autoDelete(selectedAutoDelete)
     end
 end
 local library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
-local Wait = library.subs.Wait -- Only returns if the GUI has not been terminated. For 'while Wait() do' loops
+local Wait = library.subs.Wait -- Only returns if the GUI has not been terminated. For 'while task.Wait() do' loops
 
 local PepsisWorld = library:CreateWindow({
 Name = "Pepsi's World",
 Themeable = {
-Info = "Discord Server: VzYTJ7Y"
+Info = "Made by tbitw#0721"
 }
 })
 
@@ -543,7 +551,7 @@ FarmingSection:AddToggle({
 local selectedEgg
 PetSection:AddDropdown({
    Name="Egg to buy",
-   List={"Click Me","Dragon Star","Demon Star","5M Star","Pirate Star","Slayer Star","Nine Tailed Star","Spirit Star","Walled Star","Namekian Star","Quirky Star","Crazy Star","Hunter Star","Fighting Star","city","moon","fire"},
+   List={"Click Me","Dragon Star","Demon Star","5M Star","Pirate Star","Slayer Star","Nine Tailed Star","Spirit Star","Walled Star","Narmekian Star","Quirky Star","Crazy Star","Hunter Star","Fighting Star","city","moon","fire"},
    Callback=function(value)
        selectedEgg=value
        print(value)
