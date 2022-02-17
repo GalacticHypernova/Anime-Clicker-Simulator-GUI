@@ -1,4 +1,3 @@
---Test
 --Another test
 getgenv().settings={
    ["click"]=false,
@@ -128,9 +127,10 @@ function autoCollectDrops()
        local plyrHead=game.Players.LocalPlayer.Character.HumanoidRootPart
        while task.wait() do
            if not getgenv().settings["drops"] then break end
-           for i,v in pairs(game:GetDescendants()) do
-               if v.Name=="TouchInterest" and v.Parent.Name=="Part" then
+           for i,v in pairs(game:GetService("Workspace").Pickups:GetDescendants()) do
+               if v.Name=="TouchInterest" and v.Parent.Name=="Touch" then
                    firetouchinterest(plyrHead,v.Parent,0)
+                    firetouchinterest(plyrHead,v.Parent,1)
                end
            end
        end
@@ -479,9 +479,8 @@ Mode=   "Dynamic"
 }
 })
 local selectedRebirth
-FarmingSection:AddDropdown({
-   Name="Rebirth options",
-   List = {"Click Me","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"},
+FarmingSection:AddTextbox({
+   Name="Rebirth amount",
    Callback=function(value)
        selectedRebirth=value
        print(value)
